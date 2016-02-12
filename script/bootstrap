@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+function bootstrap {
+  local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  app compile virtualenv
+  ln -nfs ../vendor/virtualenv/bin/pygmentize bin/
+  ln -nfs ../vendor/virtualenv/bin/pycco bin/
+}
+
+bootstrap
