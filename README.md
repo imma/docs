@@ -1,5 +1,1 @@
-Setup
-=====
-
-For bash, source `script/profile` to expose the `pycco` command.  Requires the
-`defn/app` project installed and sourced.
+Visit http://defn.sh/docs/ or open `docs/index.html`
