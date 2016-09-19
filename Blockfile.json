@@ -1,5 +1,7 @@
 {
   "require": [
-    "python"
+    "python",
+    "hugo",
+    "slate"
   ]
 }
