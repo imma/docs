@@ -1,4 +1,5 @@
 docs:
+	mkdir -p /data/nginx/html/$(shell basename $(PWD))
 	ln -nfs /data/nginx/html/$(shell basename $(PWD)) public
 	ln -nfs $(BLOCK_PATH) themes
 	pycco -i -p -l bash -d public $(git grep '# #' | cut -d: -f1 | uniq)
