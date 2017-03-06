@@ -1,7 +1,6 @@
 {
   "require": [
     "python",
-    "slate",
     [ "hugo", "hugo-material-docs" ]
   ]
 }
