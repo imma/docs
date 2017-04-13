@@ -1,3 +1,4 @@
 /vendor/virtualenv
 /bin/pycco
 /bin/pygmentize
+/node_modules

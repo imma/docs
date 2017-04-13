@@ -1,6 +1,6 @@
 {
   "require": [
-    "python",
+    [ "python", "yarn" ],
     [ "hugo", "hugo-material-docs" ]
   ]
 }
