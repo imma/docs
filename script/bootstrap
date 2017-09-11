@@ -5,8 +5,12 @@ function bootstrap {
   source "$shome/script/profile"
 
   block compile virtualenv
-  ln -nfs ../vendor/virtualenv/bin/pygmentize bin/
-  ln -nfs ../vendor/virtualenv/bin/pycco bin/
+  ln -nfs ../vendor/virtualenv/bin/pygmentize "$shome/bin/"
+  ln -nfs ../vendor/virtualenv/bin/pycco "$shome/bin/"
+
+  block compile yarn
+  ln -nfs ../node_modules/.bin/prettier "$shome/bin/"
+  ln -nfs ../node_modules/.bin/http-server "$shome/bin/"
 }
 
 bootstrap

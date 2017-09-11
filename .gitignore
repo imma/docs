@@ -1,4 +1,6 @@
 /vendor/virtualenv
 /bin/pycco
 /bin/pygmentize
+/bin/prettier
+/bin/http-server
 /node_modules
