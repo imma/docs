@@ -4,7 +4,15 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  if [[ -x "$(type -P pycco)" ]]; then
+  if ! type -P pycco >/dev/null; then
+    return 1
+  fi
+
+  if ! type -P prettier >/dev/null; then
+    return 1
+  fi
+
+  if ! type -P http-server >/dev/null; then
     return 1
   fi
 
