@@ -1,7 +1,7 @@
 {
   "private": "true",
   "dependencies": {
-    "prettier": "^1.0.2",
-    "http-server": ""
+    "http-server": "",
+    "prettier": "^1.0.2"
   }
 }
