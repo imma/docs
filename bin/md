@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+function main {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+
+  rm -rf .public
+  block runmany 'if test -f $1/config.json; then cd $1 && block compile docs; fi'
+}
+
+source sub "$BASH_SOURCE" "$@"
