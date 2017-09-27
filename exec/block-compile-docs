@@ -7,13 +7,19 @@ function main {
   local tmp_config="$(mktemp -t XXXXXX.json)"
   trap "$(printf 'rm -f %q' "$tmp_config")" EXIT 
 
-  jq -n -r \
-    --argfile seed "${BOARD_PATH}/config.json" \
-    --argfile content "$phome/config.json" \
-    '$seed * $content' > "$tmp_config"
+  if [[ "$#" == 0 ]]; then
+    set -- "$phome"
+  fi
 
-  cd "$BOARD_PATH"
-  hugo --config "$tmp_config" --contentDir "$phome/content/" 
+  for phome in "$@"; do
+    jq -n -r \
+      --argfile seed "${BOARD_PATH}/config.json" \
+      --argfile content "$phome/config.json" \
+      '$seed * $content' > "$tmp_config"
+
+    cd "$BOARD_PATH"
+    hugo --config "$tmp_config" --contentDir "$phome/content/" 
+  done
 }
 
 source sub "$0" "$@"
