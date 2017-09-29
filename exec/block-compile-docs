@@ -7,6 +7,11 @@ function main {
   local tmp_config="$(mktemp -t XXXXXX.json)"
   trap "$(printf 'rm -f %q' "$tmp_config")" EXIT 
 
+  local pth_themes="${BOARD_PATH}/themes"
+  if [[ -d "$phome/themes" ]]; then
+    pth_themes="$phome/themes"
+  fi
+
   if [[ "$#" == 0 ]]; then
     set -- "$phome"
   fi
@@ -17,8 +22,7 @@ function main {
       --argfile content "$phome/config.json" \
       '$seed * $content' > "$tmp_config"
 
-    cd "$BOARD_PATH"
-    hugo --config "$tmp_config" --contentDir "$phome/content/" 
+    hugo --config "$tmp_config" --contentDir "$phome/content/"  --themesDir "$pth_themes"
   done
 }
 
