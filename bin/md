@@ -4,7 +4,7 @@ function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
 
   rm -rf .public
-  block runmany 'if test -f $1/config.json; then cd $1 && block compile docs; fi'
+  block runmany 'if test -f $1/config.json; then block compile docs $1; fi'
 }
 
 source sub "$BASH_SOURCE" "$@"
