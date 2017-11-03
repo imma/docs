@@ -4,9 +4,11 @@ function bootstrap {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
   source "$shome/script/profile"
 
-  block compile virtualenv
-  ln -nfs ../vendor/virtualenv/bin/pygmentize "$shome/bin/"
-  ln -nfs ../vendor/virtualenv/bin/pycco "$shome/bin/"
+  cd "$shome"
+  mkdir -p "$shome/bin"
+
+  block compile pipenv
+  ln -nfs $(pipenv run which pycco pygmentize) "$shome/bin/"
 
   block compile yarn
   ln -nfs ../node_modules/.bin/prettier "$shome/bin/"
