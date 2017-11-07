@@ -4,3 +4,4 @@
 /bin/prettier
 /bin/http-server
 /node_modules
+Pipfile.lock
