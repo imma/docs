@@ -1,7 +1,17 @@
 {
   "require": [
-    [ "python", "yarn" ],
-    [ "hugo", "hugo-material-docs", "beautifulhugo" ],
-    [ "asciinema" ]
-  ]
+    [
+      "python",
+      "yarn"
+    ],
+    [
+      "hugo",
+      "hugo-material-docs",
+      "beautifulhugo"
+    ],
+    [
+      "asciinema"
+    ]
+  ],
+  "versions": {}
 }
