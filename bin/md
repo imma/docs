@@ -3,11 +3,12 @@
 function main {
   local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
 
-  block runmany 4 'ln -vnfs $1/content "${BOARD_PATH}/content/${1##*/}"'
+  block runmany 4 'mkdir -p $1/content; touch $1/content/${1##*/}.md; ln -vnfs $1/content "${BOARD_PATH}/content/${1##*/}"'
 
   rm -rf .public
   block runmany 4 'if test -f $1/config.json; then block compile docs $1; fi || true'
   block compile docs
+  block runmany 4 'rm -rf .public/${1##*/}/${1##*/}'
 }
 
 source sub "$BASH_SOURCE" "$@"
