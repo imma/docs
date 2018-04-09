@@ -5,9 +5,7 @@
       "yarn"
     ],
     [
-      "hugo",
-      "hugo-material-docs",
-      "beautifulhugo"
+      "hugo"
     ],
     [
       "ascii"
