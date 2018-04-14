@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+function main {
+  local phome="$1"; shift
+  shift; shift
+
+  local tmp_config="$(mktemp -t XXXXXX.json)"
+  trap "$(printf 'rm -f %q' "$tmp_config")" EXIT 
+
+  local pth_themes="${BOARD_PATH}/themes"
+  if [[ -d "$phome/themes" ]]; then
+    pth_themes="$phome/themes"
+  fi
+
+  jq -n -r \
+    --argfile seed "${phome}/config.json" \
+    --argfile content "$phome/index.json" \
+    '$seed * $content' > "$tmp_config"
+
+  hugo --config "$tmp_config" --contentDir "$phome/index/"  --themesDir "$pth_themes"
+}
+
+source sub "$0" "$@"
