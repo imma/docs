@@ -5,7 +5,8 @@
       "yarn"
     ],
     [
-      "hugo"
+      "hugo",
+      "vue"
     ],
     [
       "ascii"
