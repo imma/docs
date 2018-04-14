@@ -22,6 +22,7 @@ function main {
       --argfile content "$phome/config.json" \
       '$seed * $content' > "$tmp_config"
 
+    rm -rf "$phome/.public"
     hugo --config "$tmp_config" --contentDir "$phome/content/"  --themesDir "$pth_themes"
   done
 }
