@@ -24,6 +24,7 @@ function main {
 
     rm -rf "$phome/.public"
     hugo --config "$tmp_config" --contentDir "$phome/content/"  --themesDir "$pth_themes"
+    find ".public" -type f | runmany 'perl -ne "m{<meta name=.generator.} ||  print" -i "$1"'
   done
 }
 
